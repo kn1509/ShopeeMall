@@ -1,3 +1,7 @@
+.main {
+    overflow: hidden;
+}
+
 .header {
     height: var(--header-height);
     background-image: linear-gradient(0, #fe6433, #f53e2d);
@@ -506,6 +510,8 @@
 .header__logo-link {
     text-decoration: none;
     color: transparent;
+    display: block;
+    line-height: 0;
 }
 
 .header__logo-img {
@@ -535,6 +541,7 @@
     display: inline-block;
     padding: 0 12px;
     cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .header__cart-wrap:hover .header__cart-list {
@@ -615,6 +622,7 @@
     border: 2px solid #EE4d2d;
     line-height: 1.4rem;
 }
+
 
 /* Cart item */
 .header__cart-heading {
@@ -725,6 +733,80 @@
 
 .header__cart-view-cart:hover {
     background-color: #f38069;
+}
+
+/* Chat mobile */
+.header__chat {
+    width: 50px;
+    text-align: right;
+    display: none;
+}
+
+.header__chat-wrap {
+
+    position: relative;
+    display: inline-block;
+    padding: 0 12px;
+    cursor: pointer
+}
+
+.header__chat-icon {
+    width: 26px;
+    height: 26px;
+    cursor: pointer;
+    color: var(--white-color);
+    font-size: 2.2rem;
+}
+
+
+/* Header sort bar */
+.header__sort-bar {
+    position: fixed;
+    top: var(--header-height);
+    left: 0;
+    right: 0;
+    height: var(--header-sort-bar-height);
+    background-color: var(--white-color);
+    list-style: none;
+    margin: 0;
+    padding-left: 0%;
+    text-align: center;
+    border-top: 1px solid #e5e5e5;
+    border-bottom: 1px solid #e5e5e5;
+    display: none;
+
+}
+
+.header__sort-item {
+    flex: 1;
+}
+
+.header__sort-link {
+    position: relative;
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 1.4rem;
+    display: block;
+    height: 100%;
+    line-height: var(--header-sort-bar-height);
+}
+
+.header__sort-link::before {
+    position: absolute;
+    content: "";
+    top: 50%;
+    left: 0;
+    height: 60%;
+    border-left: 1px solid #e5e5e5;
+    transform: translateY(-50%);
+}
+
+.header__sort-item--active .header__sort-link {
+    color: var(--primary-color);
+}
+
+.header__sort-item:first-child .header__sort-link::before {
+    display: none;
 }
 
 /* Search */
@@ -854,6 +936,7 @@
     display: inline-block;
 }
 
+
 /* Search History */
 .header__search-history {
     position: absolute;
@@ -977,6 +1060,66 @@
 .category-item__link:hover {
     right: -4px;
     color: var(--primary-color);
+}
+
+/* Mobile category */
+.mobile-category {
+    display: none;
+}
+
+.mobile-category__list {
+    display: flex;
+    list-style: none;
+    padding-left: 0;
+    max-width: 100%;
+    overflow-x: auto;
+
+}
+
+.mobile-category__list::-webkit-scrollbar {
+    display: none;
+}
+
+.mobile-category__item {
+    flex-shrink: 0;
+    margin-right: 10px;
+
+
+}
+
+.mobile-category__item:nth-of-type(3n + 1) .mobile-category__link {
+    background-color: #87afd8;
+}
+
+.mobile-category__item:nth-of-type(3n + 2) .mobile-category__link {
+    background-color: #79C9BD;
+}
+
+.mobile-category__item:nth-of-type(3n + 3) .mobile-category__link {
+    background-color: #88cf81;
+}
+
+.mobile-category__link {
+    --line-height: 2rem;
+    text-decoration: none;
+    color: var(--white-color);
+    font-size: 1.4rem;
+    line-height: var(--line-height);
+    height: calc(var(--line-height) * 2);
+    overflow: hidden;
+    width: 110px;
+    text-align: center;
+    display: block;
+    border-radius: 3px;
+    font-weight: 300;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    padding: 0 6px;
+
 }
 
 /* Home filter */
@@ -1264,6 +1407,7 @@ i.home-product-item__like-icon--fill {
 .home-product__pagination {
     margin-top: 48px;
     margin-bottom: 32px;
+    padding-left: 0;
 }
 
 /* footer */
@@ -1304,8 +1448,9 @@ i.home-product-item__like-icon--fill {
     color: #4a4a4a;
 
 }
-.footer-item__link:hover .footer-item-icon{
-    color:  #4a4a4a;
+
+.footer-item__link:hover .footer-item-icon {
+    color: #4a4a4a;
 
 }
 
@@ -1339,7 +1484,7 @@ i.home-product-item__like-icon--fill {
 .footer__bottom {
     padding: 32px 0;
     margin-top: 36px;
-    background-color: #e0e0e0 ;
+    background-color: #e0e0e0;
 
 }
 
@@ -1348,5 +1493,5 @@ i.home-product-item__like-icon--fill {
     text-align: center;
     font-size: 1.2rem;
     color: #737373;
-    
+
 }
